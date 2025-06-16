@@ -8,7 +8,10 @@ import { AuthModule } from './auth/auth.module';
     ConfigModule.forRoot(),
 
     MongooseModule.forRoot(
-      `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/?${process.env.MONGO_OPTIONS}&appName=${process.env.MONGO_DB_NAME}`
+      `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/?${process.env.MONGO_OPTIONS}`,
+      {
+        dbName: process.env.MONGO_DB_NAME,
+      }
     ),
 
     AuthModule
