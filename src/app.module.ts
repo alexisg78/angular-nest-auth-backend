@@ -7,15 +7,13 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     ConfigModule.forRoot(),
 
-    MongooseModule.forRoot( process.env.MONGO_URI!, {
-      dbName: process.env.MONGO_DB_NAME
-    }),
+    MongooseModule.forRoot(
+      `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/?${process.env.MONGO_OPTIONS}&appName=${process.env.MONGO_DB_NAME}`
+    ),
 
     AuthModule
   ],
   controllers: [],
   providers: [],
 })
-export class AppModule {
-
-}
+export class AppModule {}
